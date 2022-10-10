@@ -61,7 +61,7 @@ const Pharmacy = () => {
 
   useEffect(() => {
     loadPharmacy();
-  }, []);
+  }, [pharmacyId]);
 
   if (isLoading) {
     return <Loading text="Loading Pharmacy" />;
