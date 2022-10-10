@@ -3,7 +3,7 @@ interface PharmacyFields {
   id: string
   name: string
   primaryPhoneNumber: string
-  hours?: string
+  pharmacyHours?: string
   address: {
     streetAddress1: string
     city: string
