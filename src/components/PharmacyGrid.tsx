@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
-interface PharmacyData {
-  pharmacyId: string
-  name: string
-}
+import PharmacyListFields from '../interfaces/PharmacyListFields';
 
 interface GridProps {
-  rows: PharmacyData[]
+  rows: PharmacyListFields[]
 }
 
 const Grid = ({ rows }: GridProps) => {
-  const renderStatus = (rowData: PharmacyData) => (
-    <span>check or dot</span>
+  const renderStatus = (rowData: PharmacyListFields) => (
+    rowData.order ? <i className="pi pi-check" /> : <span>-</span>
   );
-  const renderNameLink = (rowData: PharmacyData) => (
-    <Link to="/pharmacy">Pharmcy Name</Link>
+  const renderNameLink = (rowData: PharmacyListFields) => (
+    <Link to={`/${rowData.pharmacyId}`}>{rowData.name}</Link>
   );
   return (
     <DataTable value={rows} showGridlines responsiveLayout="scroll">
