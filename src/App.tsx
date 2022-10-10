@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Outlet, Link } from "react-router-dom";
+import { Menubar } from 'primereact/menubar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+const App = () => (
+  <div className="app">
+    <header className="app-header">
+      <Menubar
+        className="m-2 mb-4"
+        start={(
+          <>
+            <Link to="/">
+              <i className="pi pi-home mr-1" /> Home
+            </Link>
+          </>
+        )}
+      />
+    </header>
+    <main className="p-4">
+      <Outlet />
+    </main>
+    <footer>
+    </footer>
+  </div>
+);
 
 export default App;
